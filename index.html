@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Fileshare</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/filesharer.css">
+        <!--
+        <script type="text/javascript" src="bower_components/react/react.js"></script>
+        <script type="text/javascript" src="bower_components/react/JSXTransformer.js"></script>
+        <script type="text/javascript" src="bower_components/react-router/dist/react-router.js"></script>
+        <script type="text/jsx" src="js/handlers/ShareApp.js"></script>
+        <script type="text/jsx" src="js/handlers/Setup.js"></script>
+        <script type="text/jsx" src="js/handlers/Sharing.js"></script>
+        <script type="text/jsx" src="js/components/SetupForm.js"></script>
+        <script type="text/jsx" src="js/components/UserShareBox.js"></script>
+        <script type="text/jsx" src="js/components/UserShareBoxList.js"></script>
+        <script type="text/jsx" src="js/components/FileDropZone.js"></script>
+        -->
+        <script src="jspm_packages/traceur.js"></script>
+        <script src="jspm_packages/es6-module-loader.js"></script>
+        <script src="jspm_packages/system.js"></script>
+        <script src="config.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            System.map["react"] = "npm:react@0.12.2";
+            System.import('js/app.jsx!').then(function(bootstrap) {
+                bootstrap.default();
+            })
+            .catch(function(error) {
+                console.log("ERROR", error);
+            });
+        </script>
+    </body>
+</html>
