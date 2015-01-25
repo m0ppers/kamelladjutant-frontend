@@ -4,6 +4,7 @@ import ReactRouter from "react-router";
 import ValueLinkerMixin from "js/mixins/ValueLinkerMixin";
 import SignalingClientMixin from "js/mixins/SignalingClientMixin";
 import UserShareBoxList from "js/components/UserShareBoxList.jsx!";
+import uuid from "node-uuid";
 
 var Sharing = React.createClass({
     mixins: [ ReactRouter.State, SignalingClientMixin, ValueLinkerMixin ],
@@ -26,7 +27,12 @@ var Sharing = React.createClass({
                 "dataType": "json"
             })
             .done(function(responseData) {
-                this.setState({"status": "disconnected", "webSocketUri": responseData.webSocketUri, "hasPassword": responseData.hasPassword});
+                this.setState({"username": uuid.v1()});
+                var signalingClient = this.createSignalingClient(responseData.webSocketUri);
+                signalingClient.connect(this.state.username, this.getParams().room, this.state.password).then(function() {
+                    this.changeToConnected();
+                }.bind(this));
+                //this.setState({"status": "disconnected", "webSocketUri": responseData.webSocketUri, "hasPassword": responseData.hasPassword});
             }.bind(this))
             .fail(function(errorData) {
                 if (errorData.status == 404) {
@@ -99,7 +105,7 @@ var Sharing = React.createClass({
                 if (this.state.users.length > 0) {
                     return (
                         <div className="shareBox hasUsers">
-                            <UserShareBoxList users={this.state.users}/>
+                            <UserShareBoxList username={this.state.username} users={this.state.users}/>
                         </div>
                     )
                 } else {

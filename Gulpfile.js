@@ -18,6 +18,9 @@ gulp.task('dist', ['build'], function() {
 
     gulp.src('css/*')
         .pipe(gulp.dest('dist/css'));
+    
+    gulp.src('fonts/*')
+        .pipe(gulp.dest('dist/fonts'));
 
     
     run("./create-dist-index.sh").exec()

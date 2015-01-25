@@ -9,9 +9,9 @@ var UserShareBoxList = React.createClass({
                 className += " col-md-offset-2";
             }
             return (
-                <div key={user.id} className={className}><UserShareBox user={user} /></div>
+                <UserShareBox key={user.id} className={className} username={this.props.username} user={user} />
             )
-        });
+        }.bind(this));
         return (
             <div className="userShareBoxList">
                 {userShareBoxes}

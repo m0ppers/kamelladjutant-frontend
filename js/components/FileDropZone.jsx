@@ -33,7 +33,8 @@ var FileDropZone = React.createClass({
         }
         return (
             <div style={styles} className="fileDropZone" onDrop={this.drop} onDragOver={this.dragOver} onDragLeave={this.dragLeave} onDragEnd={this.dragEnd}>
-                Drop files here!
+                <i className="fa fa-upload fa-4x"></i>
+                <div>Drop files here to share them with {this.props.user.name}!</div>
             </div>
         );
     }
