@@ -207,9 +207,7 @@ var UserShareBox = React.createClass({
                     dataChannel.send(reader.result);
                     stateFile.transmitted = offset + reader.result.byteLength;
                     component.setState({"files": component.state.files});
-                    setTimeout(function() {
                     resolve(offset + reader.result.byteLength);
-                    }, 1000);
                 });
                 var blob = file.slice(offset, offset + bytes);
                 console.log("BLOBSIZE", blob.size);
