@@ -1,0 +1,22 @@
+.fileDropZone {
+    padding: 4em;
+    background-color: lime;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.shareBox.empty {
+    text-align: center;
+    font-size: 2em;
+}
+
+.userShareBox {
+    border-radius: 5px;
+    background-color: lightgrey;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.kamelle-margin {
+    margin-top: 10px;
+}
