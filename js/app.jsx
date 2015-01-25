@@ -11,17 +11,13 @@ var Router       = ReactRouter;
 var Route        = ReactRouter.Route;
 var DefaultRoute = ReactRouter.DefaultRoute;
 
-var bootstrap = function() {
-    var routes = (
-        <Route path="/" handler={ShareApp}>
-            <Route name="sharing" path=":room" handler={Sharing}/>
-            <DefaultRoute handler={Setup}/>
-        </Route>
-    );
+var routes = (
+    <Route path="/" handler={ShareApp}>
+        <Route name="sharing" path=":room" handler={Sharing}/>
+        <DefaultRoute handler={Setup}/>
+    </Route>
+);
 
-    Router.run(routes, /* HTML5 Router.HistoryLocation,*/ function (Handler) {
-        React.render(<Handler/>, document.body);
-    });
-}
-
-export default bootstrap;
+Router.run(routes, /* HTML5 Router.HistoryLocation,*/ function (Handler) {
+    React.render(<Handler/>, document.body);
+});
