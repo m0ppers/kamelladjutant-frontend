@@ -1,5 +1,6 @@
 node_modules
 jspm_packages
 dist
+backend-config.js
 kamelladjutant.js
 config.js

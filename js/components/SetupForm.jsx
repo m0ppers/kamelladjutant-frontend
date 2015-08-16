@@ -41,7 +41,7 @@ var SetupForm = React.createClass({
 
         $.ajax({
             type: "POST",
-            url: "http://localhost:3000/rooms",
+            url: backendUri + "/rooms",
             data: JSON.stringify(data),
             contentType: "application/json",
             dataType: "json"

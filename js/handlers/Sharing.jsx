@@ -23,7 +23,7 @@ var Sharing = React.createClass({
         if (!this.clientContainer.signalingClient) {
             $.ajax({
                 "type": "GET",
-                "url": "http://localhost:3000/rooms/" + encodeURIComponent(this.getParams().room),
+                "url": backendUri + "/rooms/" + encodeURIComponent(this.getParams().room),
                 "dataType": "json"
             })
             .done(function(responseData) {
